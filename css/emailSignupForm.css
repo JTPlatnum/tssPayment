@@ -36,9 +36,13 @@ p {
     padding: 10px;
 }
 
+#legalContainer {
+    text-align: right;
+}
+
+
 #socialMediaIconContainer ul {
     list-style-type: none;
-    text-align: right;
 }
 
 #socialMediaIconContainer ul li {

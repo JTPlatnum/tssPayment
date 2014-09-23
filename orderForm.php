@@ -78,7 +78,7 @@ function addNewRow() {
 	html += '<div class="div"><label>Shoe size</label><select  id="id_select_' + newtr_id + '" name="size_' + newtr_id + '" class="test_size_' + newtr_id + '" style="text-transform: none;float: left;border: 1px solid #ddd;width: 158px;padding: 2px 0px;border-radius:2px 2px 2px 2px;   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;" tabindex="3"><option value="0">Please Select </option><?php while($data=mysql_fetch_assoc($sizejs)){?><option value="<?=$data['id']?>"><?=$data['name']?> </option><?php } ?></select> </div><div class="clear"></div>';
 	html += '<div class="div"><label>Est.value</label><input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Value" name="estval_' + newtr_id + '"></div>';
 	html += '<div class="div_check"><label>Gold</label><input type="radio" value="0" id="gold" name="order_' + newtr_id + '" onclick="countgold()"></div>';
-	html += '<div class="div_check"><label>Silver</label><input type="radio" value="1" id="silver" name="order_' + newtr_id + '" onclick="countsiver()"></div><img src="images/close.png" alt="close" title="close" style="margin: 19px 0px; padding: 0px; width: 22px; float: left;" onclick="countallrow('+newtr_id+');">';
+	html += '<div class="div_check"><label>Silver</label><input type="radio" value="1" id="silver" name="order_' + newtr_id + '" onclick="countsilver()"></div><img src="images/close.png" alt="close" title="close" style="margin: 19px 0px; padding: 0px; width: 22px; float: left;" onclick="countallrow('+newtr_id+');">';
 	html += '</li>';
 	$('#image-row_'+res[1]).after(html);
 	$('#id_select_brand_' + newtr_id).addClass("id_select_brand_0");
@@ -88,7 +88,7 @@ function countallrow(id){
 	
 $('#image-row_'+id).remove();
 countgold();
-countsiver();
+countsilver();
 }
 function countRow(){
 	
@@ -109,7 +109,7 @@ function countgold(){
 	$('#goldcost').html(Goldcost.toFixed(2));
 		calculatetax();
 }
-function countsiver(){
+function countsilver(){
 	var silvervalue='<?php echo $config['silver'];?>';
 	var silver = '';
 	$('#veenproducts .responsive input[type=radio][id=silver]:checked').each(function(index, element) {
@@ -150,7 +150,7 @@ var rowCount = $('#producttbl tr').length-1;
 $('#totalRow').val(rowCount);
 }, 100); // refresh every 10000 milliseconds
 var auto_refresh = setInterval(function (){ 
-countsiver();
+countsilver();
 }, 10); // refresh every 10000 milliseconds
 </script>
     <script type="text/javascript">
@@ -205,13 +205,13 @@ function numericVal(num){
 }
 </script>
     </head>
-    <body onLoad="countsiver()">
+    <body onLoad="countsilver()">
 
 <!-- start header section   -->
 <div class="emailSignupHeader col-sm-12">
       <div id="logoType" class="col-sm-12">
     <div class="col-sm-6"> <img id="logoType" src="images/TSSFullWhite.png"/> </div>
-    <div id="socialMediaIconContainer" class="col-sm-6">
+<!--     <div id="socialMediaIconContainer" class="col-sm-6">
           <ul>
         <li> <a href="https://twitter.com/sneakersavant" target="_blank"><img class="s-32-twitter"></a> </li>
         <li> <a href="https://www.facebook.com/thesneakersavant" target="_blank"><img class="s-32-facebook"></a> </li>
@@ -220,16 +220,16 @@ function numericVal(num){
         <li> <a href="http://thesneakersavant.com/blog/wordpress/" target="_blank"><img class="s-32-wordpress"></a> </li>
         <li> <a href="mailto:admin@thesneakersavant.com?Subject=Hello" target="_blank"><img class="s-32-email"></a> </li>
       </ul>
-        </div>
+    </div> -->
   </div>
     </div>
 <div id="banner_container" class="pad-section text-vcenter">
-      <div class="col-sm-12 banner">
+  <div class="col-sm-12 banner">
     <h2>
-          <div class="col-sm-2"> <i class="glyphicon glyphicon-star silver"></i> </div>
-          <div class="col-sm-8"><span class="upper">We Grade Sneakers</span></div>
-          <div class="col-sm-2"> <i class="glyphicon glyphicon-star silver"></i> </div>
-        </h2>
+      <div class="col-sm-2"> <i class="glyphicon glyphicon-star silver"></i> </div>
+        <div class="col-sm-8"><span class="upper">We Grade Sneakers</span></div>
+        <div class="col-sm-2"> <i class="glyphicon glyphicon-star silver"></i> </div>
+      </h2>
   </div>
       
       <!--     <div class="col-sm-12 banner">
@@ -252,7 +252,7 @@ function numericVal(num){
     </div>
 <!-- end header section --> 
 <!-- start process and steps section --> 
-<!--<div id="process_container" class="pad-section">
+<div id="process_container" class="pad-section">
       <hr/>
     <div class="text_container">
       <div class="text-center col-sm-3">
@@ -280,10 +280,10 @@ function numericVal(num){
         </div>
       </div>
     </div>
-  </div>--> 
+  </div> 
 <!-- end process and steps section    --> 
 <!-- start services section --> 
-<!--<div id="services_container" class="pad-section">
+<div id="services_container" class="pad-section">
     <div class="col-sm-6">
       <div class="panel panel-default">
         <div class="panel-heading">
@@ -314,17 +314,33 @@ function numericVal(num){
         </div>
       </div>
     </div>
-  </div>--> 
+  </div> 
 <!-- end services section     --> 
 <!-- start the product section -->
-
+  <div id="product_container" class="pad-section">
+      <hr/>
+    <div class="text_container">
+      <div class="text-center col-sm-3">
+        <h2>The Product</h2> 
+      </div>
+      <div class="col-sm-9">
+        <p>Regardless of the service you've chosen, we provide a unique service with elegant results. We inspect your shoes inside and out and give them a grade we can stand behind. We take care of your shoes and think you should too. Get your grails out of your closet and send them to us. We'll provide you with the tools to show them to the world!</p>
+      </div>
+    </div>
+  <hr/>
+    <div id="gridBg" class="images_container col-sm-12">
+        <img src="images/finalPigeon.png"/>
+    </div>  
+  </div>
+<!-- end the product section    -->
+<!-- start order form -->
 <div class="row section-block" id="veenproducts">
       <?php if($_GET['confirm']=='1'){echo "<span style='color:green;' id='successmsg'>Payment made successsfully</span>";}else if($_GET['confirm']=='0'){ echo "<span style='color:red;' id='successmsg'>Payment Error</span>";}?>
       <form action='payment.php' method='post' name='frmPayPal1' style="background:none;">
     <button type="button" class="btn btn-primary">Order Now</button>
     
     
-    <ul id="listing" class="producttblul">
+  <ul id="listing" class="producttblul">
     <li  class="responsive" id="image-row_0">
       <div class="div">
         <label>Shoe Brand</label>
@@ -366,15 +382,11 @@ function numericVal(num){
       </div>
       <div class="div_check">
         <label>Silver</label>
-         <input type="radio" value="1" id="silver" name="order_0" onClick="countsiver()" checked >
+         <input type="radio" value="1" id="silver" name="order_0" onClick="countsilver()" checked >
       </div>
-    </li>
-    
-    
- 
-    
-   
-    </ul>
+    </li>  
+  </ul>
+
     <a href="javascript:void(0);" class="link_more"  onclick="addNewRow();">Add More +</a>
     
     <div class="clearfix"></div>
@@ -385,25 +397,25 @@ function numericVal(num){
     <div class="cont2">
           <table class="rwd-table second-block">
         <tr class="even">
-              <th>Grading Total</th>
-              <th>Total Cost</th>
-            </tr>
+          <th>Grading</th>
+          <th>Cost</th>
+        </tr>
         <tr >
-              <td data-th="Shoe Brand"><span id="ttasilver"></span> pairs Silver Service</td>
-              <td data-th="total cost">$ <span id="silvercost">0</span></td>
-            </tr>
+          <td data-th="Shoe Brand"><span id="ttasilver"></span> Silver</td>
+          <td data-th="total cost">$ <span id="silvercost">0</span></td>
+        </tr>
         <tr class="even">
-              <td data-th="Shoe Brand"><span id="ttagold"></span> pairs Gold Service</td>
-              <td data-th="total cost">$ <span id="goldcost">0</span></td>
-            </tr>
+          <td data-th="Shoe Brand"><span id="ttagold"></span> Gold</td>
+          <td data-th="total cost">$ <span id="goldcost">0</span></td>
+        </tr>
+<!--         <tr>
+          <td data-th="Shoe Brand">Tax</td>
+          <td data-th="Shoe Model">$ <span id="tax">0</span></td>
+        </tr> -->
         <tr>
-              <td data-th="Shoe Brand">Tax</td>
-              <td data-th="Shoe Model">$ <span id="tax">0</span></td>
-            </tr>
-        <tr>
-              <td data-th="Shoe Brand">Pair Total</td>
-              <td data-th="Shoe Model">$ <span id="pairtotal">0</span></td>
-            </tr>
+          <td data-th="Shoe Brand">Grand Total</td>
+          <td data-th="Shoe Model">$ <span id="pairtotal">0</span></td>
+        </tr>
       </table>
         </div>
     <div class="clearfix"></div>
@@ -414,37 +426,34 @@ function numericVal(num){
     <input type="hidden" name="totalsilver" id="totalsilver" value="">
   </form>
       <script type="text/javascript">
-$(".pay-now").click(function(){
+          $(".pay-now").click(function(){
 
-if($('#descr').val()!=''){
-	  $("form[name='frmPayPal1']").submit();
+          if($('#descr').val()!=''){
+          	  $("form[name='frmPayPal1']").submit();
 
-}else{
-document.getElementById('descr').focus();
-$('#descr').css('border-color','red');
-return false;
-}
- });
- function numericFilter(txb) {
-   txb.value = txb.value.replace(/[^\0-9]/ig, "");
-}
+          }else{
+          document.getElementById('descr').focus();
+          $('#descr').css('border-color','red');
+          return false;
+          }
+           });
+           function numericFilter(txb) {
+             txb.value = txb.value.replace(/[^\0-9]/ig, "");
+          }
 
-</script> 
+      </script> 
     </div>
 </div>
-<!-- <div id="product_container" class="pad-section">
- 
-  </div>--> 
-<!-- end the product section    --> 
-<!-- start signup section -->
+<!-- end order form    --> 
+<!-- start email signup section -->
 <div class="emailSignupForm text-vcenter">
       <form id="newsletter-signup" method="post">
     <input type="hidden" value="signup" name="action">
     <fieldset>
-          <h2>Sign up. Stay tuned.</h2>
+          <h2>Interested but are still not sure? </h2>
           <br>
-          <label for="signup-email">We're going to be introducing some interesting products and information in the coming weeks. <br>
-        Sign up today for a special deal on your first order:</label>
+          <label for="signup-email"><br>
+        Sign up today and we'll grade your first pair for free!:</label>
           <br>
           <input type="text" name="signup-email" id="signup-email" />
           <input type="submit" id="signup-button" value="Sign Up!" />
@@ -454,14 +463,26 @@ return false;
         </fieldset>
   </form>
     </div>
-<!-- end signup section   --> 
+<!-- end email signup section   --> 
 <!-- start footer section -->
 <footer>
-      <div class="container" class="col-sm-12">
-      <p class="text-right"> <a href="#legalDetails" data-toggle="modal"> Legal </a><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="container" class="col-sm-12">
+      <div id="socialMediaIconContainer" class="col-sm-6">
+            <ul>
+              <li> <a href="https://twitter.com/sneakersavant" target="_blank"><img class="s-32-twitter"></a> </li>
+              <li> <a href="https://www.facebook.com/thesneakersavant" target="_blank"><img class="s-32-facebook"></a> </li>
+              <li> <a href="http://instagram.com/thesneakersavant" target="_blank"><img class="s-32-instagram"></a> </li>
+              <li> <a href="http://tinyurl.com/mzd8z9z" target="_blank"><img class="s-32-ebay"></a> </li>
+              <li> <a href="http://thesneakersavant.com/blog/wordpress/" target="_blank"><img class="s-32-wordpress"></a> </li>
+              <li> <a href="mailto:admin@thesneakersavant.com?Subject=Hello" target="_blank"><img class="s-32-email"></a> </li>
+            </ul>
+          </div>
+      <div id="legalContainer" class="col-sm-6">
+        <p> <a href="#legalDetails" data-toggle="modal"> Legal </a><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         Copyright &copy; The Sneaker Savant 2014</small> </p>
       </div>
-    </footer>
+    </div>
+  </footer>
 <!-- end footer section   --> 
 <!-- Modal BizDetails -->
 <div class="modal fade" id="bizDetails" role="dialog">
