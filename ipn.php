@@ -19,13 +19,13 @@ require_once("config_db.php");
 			mysql_query("UPDATE `customers` SET `trasaction_id` = '$trasaction_id ', `log_id` = '$paypal_log_id', `payment_status` = '$payment_status' WHERE `invoice` = '$invoice'");
 			$subject = 'Instant Payment Notification - Recieved Payment';
 			$p->send_report($subject); // Send the notification about the transaction
-			header('Location: emailSignupForm.php?confirm=1');
+			header('Location: orderForm.php?confirm=1');
 			exit;
 			
 		}else{
 			$subject = 'Instant Payment Notification - Payment Fail';
 			$p->send_report($subject); // failed notification
-				header('Location: emailSignupForm.php?confirm=0');
+				header('Location: orderForm.php?confirm=0');
 			exit;
 		}
 

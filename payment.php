@@ -1,7 +1,7 @@
 <?php
 require_once("init.php");
 require_once("config_db.php");
-$paypal_id='ben@benfarr.com';  // sriniv_1293527277_biz@inbox.com*/
+$paypal_id='thesneakersavant@gmail.com'; 
 if( $_REQUEST['submitbtn'] == 'Pay now'){
 	$uniq =date("His").rand(1234, 9632);
 	for($a=0; $a < $_REQUEST['totalRow']; $a++){

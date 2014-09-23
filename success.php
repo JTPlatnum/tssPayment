@@ -9,10 +9,10 @@ if(mysql_query($sql)){
 	echo "<h1>".$_POST[last_name]."  ".$_POST[last_name]."</h1>";
 	echo '<h1>Payment Successful</h1>';
 	mysql_query("UPDATE order_shoes SET `payment_status` = '".$_POST[payment_status]."' WHERE `shoes_key` = '".$_POST['invoice']."'");
-	header('Location: emailSignupForm.php?confirm=1');
+	header('Location: orderForm.php?confirm=1');
 }else{
     echo "Payment Error";
-	header('Location: emailSignupForm.php?confirm=0');
+	header('Location: orderForm.php?confirm=0');
 }
 //Array ( [transaction_subject] => cu65ofgfb7r9nup53ru9vu7dq4 [txn_type] => web_accept [payment_date] => 06:09:31 Aug 22, 2014 PDT [last_name] => Sunny [residence_country] => US [pending_reason] => unilateral [item_name] => Name of Item [payment_gross] => 66.00 [mc_currency] => USD [payment_type] => instant [protection_eligibility] => Ineligible [payer_status] => verified [verify_sign] => AFcWxV21C7fd0v3bYYYRCpSSRl31ACkydxtiQlhXt1LYHqmPgVrreK3w [tax] => 0.00 [test_ipn] => 1 [payer_email] => testing.suffescom_user@gmail.com [txn_id] => 26923920WN685333D [quantity] => 1 [receiver_email] => ben@benfarr.com [first_name] => Walia [invoice] => 0019012 [payer_id] => G3FK5W9KS8GHU [item_number] => [handling_amount] => 0.00 [payment_status] => Pending [shipping] => 0.00 [mc_gross] => 66.00 [custom] => cu65ofgfb7r9nup53ru9vu7dq4 [charset] => windows-1252 [notify_version] => 3.8 [merchant_return_link] => click here [auth] => AIsPu2PUKhCh4t0wRGHLF05vVk.S9WuRyJpVq1LY7lLaPnDj0XBu7IYQSWWHOy1mg-RsqE5N69L7MjP8e-P6gCw ) Under process.........
 echo "Under process.........";

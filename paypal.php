@@ -72,19 +72,19 @@ switch($action){
 			mysql_query("UPDATE `description` SET `archived` = '0',`status` = '1' WHERE  `uniq_key` = '$invoice'");
 			$subject = 'Instant Payment Notification - Recieved Payment';
 			$p->send_report($subject); // Send the notification about the transaction
-			header("Location: http://thesneakersavant.com/emailSignupForm.php?confirm=1");
+			header("Location: http://thesneakersavant.com/orderForm.php?confirm=1");
 			exit;
 			
 		}else{
 			$subject = 'Instant Payment Notification - Payment Fail';
 			$p->send_report($subject); // failed notification
-			header("Location: http://thesneakersavant.com/emailSignupForm.php?confirm=0");
+			header("Location: http://thesneakersavant.com/orderForm.php?confirm=0");
 			exit;
 		}
 	break;
 	
 	case "cancel": // case cancel to show user the transaction was cancelled
-		header("Location: http://thesneakersavant.com/emailSignupForm.php");
+		header("Location: http://thesneakersavant.com/orderForm.php");
 		exit;
 	break;
 	
