@@ -333,11 +333,20 @@ function numericVal(num){
     </div>  
   </div>
 <!-- end the product section    -->
+ <hr/>
 <!-- start order form -->
-<div class="row section-block" id="veenproducts">
+<div id="ctaSection" class="col-sm-12">
+  <div class="col-sm-6" >
+    <button type="button" class="btn btn-primary">Order Now</button>
+  </div>
+    <div class="col-sm-6" >
+      <button type="button" class="btn btn-primary">Lookup</button>
+  </div>
+</div>
+<div id="veenproducts" class="row section-block">
       <?php if($_GET['confirm']=='1'){echo "<span style='color:green;' id='successmsg'>Payment made successsfully</span>";}else if($_GET['confirm']=='0'){ echo "<span style='color:red;' id='successmsg'>Payment Error</span>";}?>
       <form action='payment.php' method='post' name='frmPayPal1' style="background:none;">
-    <button type="button" class="btn btn-primary">Order Now</button>
+
     
     
   <ul id="listing" class="producttblul">
@@ -445,12 +454,13 @@ function numericVal(num){
     </div>
 </div>
 <!-- end order form    --> 
+ <hr/>
 <!-- start email signup section -->
 <div class="emailSignupForm text-vcenter">
       <form id="newsletter-signup" method="post">
     <input type="hidden" value="signup" name="action">
     <fieldset>
-          <h2>Interested but are still not sure? </h2>
+          <h2>Interested? </h2>
           <br>
           <label for="signup-email"><br>
         Sign up today and we'll grade your first pair for free!:</label>
