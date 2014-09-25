@@ -57,7 +57,6 @@ $config=config();
     <link rel="stylesheet" href="css/table.css" media="screen" type="text/css" />
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet" />
-    <link href="css/emailSignupForm.css" rel="stylesheet" />
     <link href="css/sprite.css" rel="stylesheet" />
        <link href="css/responsive-tables.css" rel="stylesheet" type="text/css" media="all" />
           <script src="js/responsive-tables.js"></script>
@@ -337,17 +336,19 @@ function numericVal(num){
 <!-- start order form -->
 <div id="ctaSection" class="col-sm-12">
   <div class="col-sm-6" >
-    <button type="button" class="btn btn-primary">Order Now</button>
+    <button type="button" id="orderNow" class="btn btn-primary btn-large">Order Now</button>
   </div>
     <div class="col-sm-6" >
-      <button type="button" class="btn btn-primary">Lookup</button>
+      <button type="button" id="lookup" class="btn btn-primary btn-large">Lookup</button>
   </div>
 </div>
 <div id="veenproducts" class="row section-block">
       <?php if($_GET['confirm']=='1'){echo "<span style='color:green;' id='successmsg'>Payment made successsfully</span>";}else if($_GET['confirm']=='0'){ echo "<span style='color:red;' id='successmsg'>Payment Error</span>";}?>
       <form action='payment.php' method='post' name='frmPayPal1' style="background:none;">
 
-    
+    <div class="col-sm-12">
+      <p>black blakcljalj</p>
+    </div>
     
   <ul id="listing" class="producttblul">
     <li  class="responsive" id="image-row_0">
@@ -463,7 +464,7 @@ function numericVal(num){
           <h2>Interested? </h2>
           <br>
           <label for="signup-email"><br>
-        Sign up today and we'll grade your first pair for free!:</label>
+        Sign up today and we'll grade your first pair for free!</label>
           <br>
           <input type="text" name="signup-email" id="signup-email" />
           <input type="submit" id="signup-button" value="Sign Up!" />
