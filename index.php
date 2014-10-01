@@ -75,7 +75,7 @@ require_once("config_db.php");
   <!-- attach CSS styles -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet" />
-  <link href="css/emailSignupForm.css" rel="stylesheet" />
+  <!-- <link href="css/emailSignupForm.css" rel="stylesheet" /> -->
   <link href="css/sprite.css" rel="stylesheet" />
   <link href='http://fonts.googleapis.com/css?family=Open+Sans|Oswald|Roboto' rel='stylesheet' type='text/css'>
   <link rel="shortcut icon" href="images/favicon.ico" />
