@@ -23,9 +23,10 @@ require_once("config_db.php");
  
            $date = date('Y-m-d');
            $time = date('H:i:s');
- 
+           
            $insertSignup = mysql_query("INSERT INTO signups (signup_email_address, signup_date, signup_time) VALUES ('$email','$date','$time')");
-           if($insertSignup){
+
+           if($insertSignup){   
                $status = "success";
                $message = "   You have been signed up. Thank you!";   
            }
